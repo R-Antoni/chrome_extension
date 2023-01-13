@@ -5,8 +5,14 @@ let myLeads = []
 
 inputBtn.addEventListener("click", ()=> {
     myLeads.push(inputEl.value)
+    renderLeads()
 })
 
-for(let i = 0; i < myLeads.length; i++){
-    listEl.innerHTML += "<li>" + (myLeads[i]) + "</li>"
+function renderLeads(){
+    let listItem = ""
+    for(let i = 0; i < myLeads.length; i++){
+        listItem += "<li>" + (myLeads[i]) + "</li>"
+    }
+    
+    listEl.innerHTML = listItem
 }
