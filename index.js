@@ -2,9 +2,11 @@ const inputBtn = document.querySelector("#input-btn")
 const inputEl = document.querySelector("#input-el")
 const listEl = document.querySelector("#ul-el")
 let myLeads = []
+let localLeads = JSON.parse(localStorage.getItem("myLeads"))
 
 inputBtn.addEventListener("click", ()=> {
     myLeads.push(inputEl.value)
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
     renderLeads()
     inputEl.value = ""
 })
@@ -12,8 +14,7 @@ inputBtn.addEventListener("click", ()=> {
 function renderLeads(){
     let listItem = ""
     for(let i = 0; i < myLeads.length; i++){
-        listItem += 
-        `<li><a target='_blank' href='${myLeads[i]}'>${myLeads[i]}</a></li>`
+        listItem += `<li><a target='_blank' href='${myLeads[i]}'>${myLeads[i]}</a></li>`
     }
     listEl.innerHTML = listItem
 }
