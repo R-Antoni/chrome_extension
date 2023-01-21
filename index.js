@@ -4,6 +4,11 @@ const listEl = document.querySelector("#ul-el")
 let myLeads = []
 let localLeads = JSON.parse(localStorage.getItem("myLeads"))
 
+if (localLeads){
+    myLeads = localLeads;
+    renderLeads()
+}
+
 inputBtn.addEventListener("click", ()=> {
     myLeads.push(inputEl.value)
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
@@ -18,3 +23,4 @@ function renderLeads(){
     }
     listEl.innerHTML = listItem
 }
+
