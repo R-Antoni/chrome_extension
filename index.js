@@ -1,6 +1,7 @@
 const inputBtn = document.querySelector("#input-btn")
 const inputEl = document.querySelector("#input-el")
 const listEl = document.querySelector("#ul-el")
+const deleteBtn = document.querySelector("#delete-btn")
 let myLeads = []
 let localLeads = JSON.parse(localStorage.getItem("myLeads"))
 
@@ -24,3 +25,8 @@ function renderLeads(){
     listEl.innerHTML = listItem
 }
 
+deleteBtn.addEventListener("dblclick", ()=>{
+    localStorage.clear();
+    myLeads = [];
+    renderLeads()
+})
